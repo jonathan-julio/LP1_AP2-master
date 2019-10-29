@@ -19,29 +19,32 @@ caminhao::caminhao(){
 	setChassi("");
 	setTipo_carga(0);
 	setData();
-	//++numeroCarros;
+	
 }
 
+// adicionado namualmente
 caminhao::caminhao(string marca_, double preco_, string chassi_,int tipo_carga_ ){
 	setMarca(marca_);
 	setPreco(preco_);
 	setChassi(chassi_);
 	setTipo_carga(tipo_carga_);
 	setData();
-	//++numeroCarros;
 }
+
+// adicionado por arquivo
 caminhao::caminhao(string marca_, double preco_, string chassi_,int tipo_carga_ ,string data_){
 	setMarca(marca_);
 	setPreco(preco_);
 	setChassi(chassi_);
 	setTipo_carga(tipo_carga_);
 	setData(data_);	
-	//++numeroCarros;
+
 }
 
 
 caminhao::~caminhao(){
-//	--numeroCarros;
+
+
 }
 
 int caminhao::getTipo_carga(){

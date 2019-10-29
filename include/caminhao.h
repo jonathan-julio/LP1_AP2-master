@@ -24,8 +24,8 @@ class caminhao : public veiculo{
 		//static int numeroCarros;
 
 		caminhao();
-		caminhao(string marca, double preco, string chassi, int tipo_carga_);	
-		caminhao(string marca, double preco, string chassi, int tipo_carga_,string data_);
+		caminhao(string marca, double preco, string chassi, int tipo_carga_); //para quando o veiculo é cadastrado manualmente
+		caminhao(string marca, double preco, string chassi, int tipo_carga_,string data_); //para quando o veiculo é cadastrado por arquivo csv
 		
 		~caminhao();
 		int getTipo_carga();

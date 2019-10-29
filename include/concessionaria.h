@@ -52,9 +52,11 @@ public:
 	int getSizeLista_M();
 	int getSizeLista_C();
 	
-
-	bool add_carro();
+	// quando criar veiculo manualmente
+	bool add_veiculo(); // 
 	bool lista_carro();
+
+	// funções chamadas quando vão criar uma concessionaria a partir de um arquivo csv
 	bool add_automovel(string marca, double preco, string chassi,int motor,string data_);
 	bool add_moto(string marca, double preco, string chassi,int modelo,string data_);
 	bool add_caminhao(string marca, double preco, string chassi,int carga,string data_);
@@ -64,8 +66,10 @@ public:
 		return a.get_cnpj() == cnpj;
 	}
 
-
+	// operador para imprimir no terminal
 	friend ostream& operator<< (ostream &o, concessionaria &concessionaria);
+	
+	// operador para imprimir no arquivo csv
 	friend ofstream& operator<< (ofstream &o, concessionaria &concessionaria);
 	bool operator==(const concessionaria &conc) const;
 	bool verificarChassi();

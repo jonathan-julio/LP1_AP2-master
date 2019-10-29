@@ -26,9 +26,9 @@ int main (int argc, char const *argv[]){
 		<< "Digite 1 - Criar Concessionaria"<< endl
 		<< "Digite 2 - Adicionar veiculo "<<endl
 		<< "Digite 3 - Detalhes Concessionaria "<<endl
-		<< "Digite 4 - Lista de Automoveis"<< endl
+		<< "Digite 4 - Lista de veiculos"<< endl
 		<< "Digite 5 - Salvar concessionaria"<< endl
-		<< "Digite 6 - Busca chassi"<< endl
+		<< "Digite 6 - Buscar chassi"<< endl
 		<< "Digite 0 - Sair"<< endl
 		<< "++++++++++++++++++++++++++++++++"<<endl
 		<< endl<< "Digite sua Escolha: " <<endl;

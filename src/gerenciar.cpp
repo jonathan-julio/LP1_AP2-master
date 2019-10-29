@@ -63,7 +63,7 @@ concessionaria gerenciar::criarconcessionaria(){
 
 	for (vector<concessionaria*>::iterator it = listaLoja.begin(); it != listaLoja.end(); ++it){
 			if ((**it).get_nome() == nome){
-				cout << endl << "Concessionaria ja cadastrado. Operacao CANCELADA!" << endl;
+				cout << endl << "Concessionaria ja cadastrada. Operacao CANCELADA!" << endl;
 				status = existe;
 			}
 		}
@@ -88,7 +88,7 @@ concessionaria gerenciar::criarconcessionariaCSV(){
 	vector<moto*> listaConc_M;
 	vector<caminhao*> listaConc_C;
 	
-	cout << "Informe o nome do arquivo: (SEM INCLUIR .CSV)";
+	cout << "Informe o nome do arquivo (SEM INCLUIR .CSV): ";
 	cin>>arq;
 	
 	ifstream arquivoE;
@@ -125,7 +125,7 @@ concessionaria gerenciar::criarconcessionariaCSV(){
 		}
 		for (vector<concessionaria*>::iterator it = listaLoja.begin(); it != listaLoja.end(); ++it){
 			if ((**it).get_nome()== nomeConcAux){
-				cout << endl << "Concessionaria ja cadastrado. Operacao CANCELADA!" << endl;
+				cout << endl << "Concessionaria ja cadastrada. Operacao CANCELADA!" << endl;
 				return **it;
 				arquivoE.close();
 			}
@@ -171,7 +171,7 @@ concessionaria gerenciar::criarconcessionariaCSV(){
 				}
 			}	
 		}
-		cout << endl << "Concessionaria cadastrado." << endl;
+		cout << endl << "Concessionaria cadastrada." << endl;
 		return *novaConc;
 		free(novaConc);
 		//arquivoE.close();
@@ -242,7 +242,7 @@ void gerenciar::cadastrarCarro(){
 	for (vector<concessionaria*>::iterator it = listaLoja.begin(); it != listaLoja.end(); ++it){
 		if ((**it).get_nome() == nome){
 			status = existe;
-			if ((**it).add_carro()){
+			if ((**it).add_veiculo()){
 				status = carroCadastrado;
 			} 
 		}
@@ -315,7 +315,7 @@ bool gerenciar::listarConcessionarias(){
 
 void gerenciar::buscaChassi(){
 
-	cout << endl << "qual concessionaria? " <<endl<< "Concessionarias:" << endl << endl;
+	cout << endl << "Qual concessionaria? " <<endl<< "Concessionarias:" << endl << endl;
 
 
 	for (vector<concessionaria*>::iterator it = listaLoja.begin(); it != listaLoja.end(); ++it){

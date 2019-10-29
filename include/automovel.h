@@ -24,8 +24,8 @@ class automovel : public veiculo{
 
 
 		automovel();
-		automovel(string marca, double preco, string chassi, int tipo_motor);
-		automovel(string marca, double preco, string chassi, int tipo_motor,string data_);
+		automovel(string marca, double preco, string chassi, int tipo_motor); //para quando o veiculo é cadastrado manualmente
+		automovel(string marca, double preco, string chassi, int tipo_motor,string data_); //para quando o veiculo é cadastrado por arquivo csv
 		~automovel();
 		int getTipo_motor();
 		void setTipo_motor(int motor_);

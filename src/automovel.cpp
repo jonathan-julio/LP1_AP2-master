@@ -23,6 +23,7 @@ automovel::automovel(){
 
 }
 
+// adicionado namualmente
 automovel::automovel(string marca_, double preco_, string chassi_,int motor_ ){
 	tipo_motor = motor_;
 	setMarca(marca_);
@@ -31,6 +32,8 @@ automovel::automovel(string marca_, double preco_, string chassi_,int motor_ ){
 	setData();	
 
 }
+
+// adicionado por arquivo csv 
 automovel::automovel(string marca_, double preco_, string chassi_,int motor_, string data_ ){
 	tipo_motor = motor_;
 	setMarca(marca_);
@@ -51,7 +54,7 @@ void automovel::setTipo_motor(int motor_){
 	tipo_motor = motor_;
 }
 
-
+// quando listar veiculos usa o operador, que tem um em cada classe
 ostream& operator<< (ostream &o, automovel &veiculo){
 	o << "*******AUTOMOVEL*******" << endl
 	  << "> Marca: " << veiculo.getMarca() << endl
@@ -66,6 +69,7 @@ ofstream& operator<< (ofstream &o, automovel &veiculo){
 	return o;
 }
 
+//comparar dois automoveis
 bool automovel::operator==( automovel &autom)  {
 	if (this->getChassi() == autom.getChassi()){
 			return true;
@@ -75,6 +79,7 @@ bool automovel::operator==( automovel &autom)  {
 	}
 }
 
+// operador para comparar só com o chassi 
 bool automovel::operator==( std::string &chassi)  {
 	if (this->getChassi() == chassi){
 		cout << "*******AUTOMOVEL*******" << endl

@@ -113,7 +113,7 @@ bool concessionaria::verificarChassi(){
 		}
 	return false;
 }
-bool concessionaria::add_carro(){
+bool concessionaria::add_veiculo(){
 	string chassi;
 	string marca;
 	double preco;

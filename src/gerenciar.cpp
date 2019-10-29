@@ -19,6 +19,9 @@ using std::string;
 using std::getline;
 
 
+gerenciar::~gerenciar(){
+
+}
 
 
 concessionaria gerenciar::criarconcessionaria(){
@@ -34,7 +37,6 @@ concessionaria gerenciar::criarconcessionaria(){
 	cout << "Informe o nome da concessionaria: ";
 	cin.ignore(200,'\n');
 	getline(cin,nome);
-	
 	cout << "Informe o tipo de proprietario.\nPessoa fisica ----- 1\nPessoa Juridica --- 2\n";
 	cin >> pessoa;
 	if(pessoa  == 1){
@@ -50,9 +52,12 @@ concessionaria gerenciar::criarconcessionaria(){
 		sobrenome = "";
 		P_nome ="";	
 	}
+	else{
+		cout << endl<< "Escolha invalida.\n";
+		return criarconcessionaria();
+	}
 
-	cout << "NOME:" << P_nome << endl;
-	cout << "SOBRENOME:" << sobrenome << endl;
+	
 	concessionaria *novaConc = new concessionaria(nome,P_nome,sobrenome,cnpj,listaConc_A,listaConc_M,listaConc_C);
 	statusConc status = inexistente;
 
@@ -71,6 +76,7 @@ concessionaria gerenciar::criarconcessionaria(){
 	return *novaConc;
 
 }
+
 
 concessionaria gerenciar::criarconcessionariaCSV(){
 	string arq,NOME_CONC,NOME_P,SOBRENOME,CNPJ,MARCA,PRECO,CHASSI,MOTOR,MODELO,CARGA,DATA; 
@@ -167,7 +173,8 @@ concessionaria gerenciar::criarconcessionariaCSV(){
 		}
 		cout << endl << "Concessionaria cadastrado." << endl;
 		return *novaConc;
-		arquivoE.close();
+		free(novaConc);
+		//arquivoE.close();
 		}	
 	}	
 	else{
@@ -175,6 +182,7 @@ concessionaria gerenciar::criarconcessionariaCSV(){
 	}
 	
 	return aux;
+
 	
 }
 
@@ -208,9 +216,9 @@ void gerenciar::salvarConcessionaria(){
 				arquivo << (**it);
 				}
 			}
-			cout << endl << "Concessionaria " << nome << " salva com sucesso."<< endl;
-			
-		} 
+			cout << endl << "Concessionaria " << nome << " salva com sucesso."<< endl;	
+
+			} 
 	}
 }
 
@@ -245,9 +253,6 @@ void gerenciar::cadastrarCarro(){
 	else if (status == carroCadastrado){
 		cout << endl << "Veiculo cadastrado." << endl;
 	} 
-	else{
-		cout << endl << "Veiculo ja cadastrado." << endl;
-	}
 	return;
 }
 
@@ -274,6 +279,8 @@ bool gerenciar::estoques(){
 	cout << endl << "Concessionaria nao encontrada. Tente novamente." << endl;
 	return false;
 }
+
+
 bool gerenciar::listarConcessionarias(){
 	cout << endl << "Estoque de qual concessionaria quer acessar? " << endl << "Concessionarias:" << endl << endl;
 			  
@@ -306,5 +313,25 @@ bool gerenciar::listarConcessionarias(){
 }
 
 
+void gerenciar::buscaChassi(){
 
+	cout << endl << "qual concessionaria? " <<endl<< "Concessionarias:" << endl << endl;
+
+
+	for (vector<concessionaria*>::iterator it = listaLoja.begin(); it != listaLoja.end(); ++it){
+		cout << (**it).get_nome() << endl;
+	}
+
+	cout << endl << "Digite a concessionaria: ";
+	string nome;
+	cin.ignore(200,'\n');
+	getline(cin,nome);
+
+	for (vector<concessionaria*>::iterator it = listaLoja.begin(); it != listaLoja.end(); ++it){
+		if ((**it).get_nome() == nome){
+			if ((**it).verificarChassi()){
+			} 
+		}
+	}
+}
 

@@ -21,20 +21,19 @@ class automovel : public veiculo{
 		
 
 	public: 
-		//static int numeroCarros;
+
 
 		automovel();
 		automovel(string marca, double preco, string chassi, int tipo_motor);
 		automovel(string marca, double preco, string chassi, int tipo_motor,string data_);
-		//~automovel();
+		~automovel();
 		int getTipo_motor();
 		void setTipo_motor(int motor_);
 
 		friend ostream& operator << (ostream &o, automovel &veiculo);
 		friend ofstream& operator << (ofstream &o, automovel &veiculo);
-		bool operator==(const automovel &autom) const;
-
-		bool operator==(const string &marca) const;
+		bool operator==( automovel &autom) ;
+		bool operator==( string &marca) ;
 	
 };
 

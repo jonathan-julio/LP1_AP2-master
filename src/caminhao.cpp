@@ -40,9 +40,9 @@ caminhao::caminhao(string marca_, double preco_, string chassi_,int tipo_carga_ 
 }
 
 
-//caminhao::~caminhao(){
+caminhao::~caminhao(){
 //	--numeroCarros;
-//}
+}
 
 int caminhao::getTipo_carga(){
 	return tipo_carga;
@@ -66,18 +66,24 @@ ofstream& operator<< (ofstream &o, caminhao &veiculo_){
 	return o;
 }
 
-//bool caminhao::operator==(const caminhao &autom) const {
-//	if (this->getMarca() = autom.getMarca()){
-///		return true;
-//	} else {
-//		return false;
-//	}
-//}
+bool caminhao::operator==( caminhao &autom)  {
+	if (this->getChassi() == autom.getChassi()){
+		return true;
+	} else {
+		return false;
+	}
+}
 
-//bool caminhao::operator==(const std::string &marca) const {
-//	if (this->getMarca() == marca){
-//		return true;
-//	} else {
-//		return false;
-//	}
-//}
+bool caminhao::operator==( std::string &marca)  {
+	if (this->getChassi() == marca){
+		cout<< "*********CAMINHAO******" << endl
+	  		<< "> Marca: " << this->getMarca() << endl
+	  		<< "> Preco: " << this->getPreco() << endl
+	  		<< "> Tipo de carga: " << this->getTipo_carga() << " (1 NORMAL, 2 RISCO)" << endl
+	 		<< "> Data fabricacao: " << this->getData() << endl
+	  		<< "> Numero do Chassi: " << this->getChassi() << endl;
+		return true;
+	} else {
+		return false;
+	}
+}

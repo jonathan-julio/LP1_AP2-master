@@ -27,7 +27,7 @@ class veiculo{
 		string getMarca();	
 		double getPreco();		 
 		string getChassi();
-		string getData();
+		virtual string getData();
 		
 		void setData();
 		void setData(string data_);

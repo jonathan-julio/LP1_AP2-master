@@ -20,7 +20,7 @@ automovel::automovel(){
 	setTipo_motor(0);
 	setData();
 	
-	//++numeroCarros;
+
 }
 
 automovel::automovel(string marca_, double preco_, string chassi_,int motor_ ){
@@ -29,7 +29,7 @@ automovel::automovel(string marca_, double preco_, string chassi_,int motor_ ){
 	setPreco(preco_);
 	setChassi(chassi_);
 	setData();	
-	//++numeroCarros;
+
 }
 automovel::automovel(string marca_, double preco_, string chassi_,int motor_, string data_ ){
 	tipo_motor = motor_;
@@ -37,12 +37,11 @@ automovel::automovel(string marca_, double preco_, string chassi_,int motor_, st
 	setPreco(preco_);
 	setChassi(chassi_);
 	setData(data_);	
-	//++numeroCarros;
+
 }
 
-//automovel::~automovel(){
-//	--numeroCarros;
-//}
+automovel::~automovel(){
+}
 
 int automovel::getTipo_motor(){
 	return tipo_motor;
@@ -67,18 +66,25 @@ ofstream& operator<< (ofstream &o, automovel &veiculo){
 	return o;
 }
 
-//bool automovel::operator==(const automovel &autom) const {
-//	if (this->getMarca = autom.getMarca())
-//		return true;
-//	} else {
-//		return false;
-//	}
-//}
+bool automovel::operator==( automovel &autom)  {
+	if (this->getChassi() == autom.getChassi()){
+			return true;
+	}
+	else {
+		return false;
+	}
+}
 
-//bool automovel::operator==(const std::string &marca) const {
-//	if (this->getMarca() == marca){
-//		return true;
-//	} else {
-//		return false;
-//	}
-//}
+bool automovel::operator==( std::string &chassi)  {
+	if (this->getChassi() == chassi){
+		cout << "*******AUTOMOVEL*******" << endl
+	  	<< "> Marca: " << this->getMarca() << endl
+	  	<< "> Preco: " << this->getPreco() << endl
+	  	<< "> Tipo motor: " << this->getTipo_motor() << " (1-GASOLINA , 2-ELETRICO)"<< endl
+	  	<< "> Data fabricacao: " << this->getData() << endl
+	  	<< "> Numero do Chassi: " << this->getChassi()<< endl;
+		return true;
+	} else {
+		return false;
+	}
+}

@@ -24,7 +24,7 @@ private:
 
 public:
 	//gerenciar();
-	//~gerenciar();
+	~gerenciar();
 	
 	bool listarConcessionarias();
 	concessionaria criarconcessionaria();
@@ -33,6 +33,8 @@ public:
 	void salvarConcessionaria();
 	void cadastrarCarro();
 	bool estoques();
+	void buscaChassi();
+	//bool buscaChassi();
 
 };
 

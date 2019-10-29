@@ -37,7 +37,7 @@ public:
 	concessionaria();
 
 	// destrutor
-//	~concessionaria();
+	~concessionaria();
 
 
 	concessionaria(string nome_,string cnpj_, const vector<automovel*>lista_A,const vector<moto*>lista_M,const vector<caminhao*>lista_C);
@@ -60,7 +60,6 @@ public:
 	bool add_caminhao(string marca, double preco, string chassi,int carga,string data_);
 	int estoque();
 	
-	
 	bool operator==(concessionaria a){
 		return a.get_cnpj() == cnpj;
 	}
@@ -69,6 +68,7 @@ public:
 	friend ostream& operator<< (ostream &o, concessionaria &concessionaria);
 	friend ofstream& operator<< (ofstream &o, concessionaria &concessionaria);
 	bool operator==(const concessionaria &conc) const;
+	bool verificarChassi();
 
 
 };

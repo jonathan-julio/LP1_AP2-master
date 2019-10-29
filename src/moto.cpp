@@ -39,9 +39,9 @@ moto::moto(string marca_, double preco_, string chassi_,int modelo_,string data_
 	//++numeroCarros;
 }
 
-//moto::~moto(){
-//	--numeroCarros;
-//}
+moto::~moto(){
+
+}
 
 int moto::getModelo(){
 	return modelo;
@@ -65,18 +65,24 @@ ofstream& operator<< (ofstream &om, moto &veiculo_){
 	return om;
 }
 
-//bool moto::operator==(const moto &autom) const {
-//	if (this->getMarca() = autom.getMarca()){
-//		return true;
-//	} else {
-//		return false;
-//	}
-//}
+bool moto::operator==( moto &autom)  {
+	if (this->getChassi() == autom.getChassi()){
+		return true;
+	} else {
+		return false;
+	}
+}
 
-//bool moto::operator==(const std::string &marca) const {
-//	if (this->getMarca() == marca){
-//		return true;
-//	} else {
-//		return false;
-//	}
-//}
+bool moto::operator==( std::string &marca)  {
+	if (this->getChassi() == marca){
+		cout<< "*********MOTO**********" << endl
+	  		<< "> Marca: " << this->getMarca() << endl
+	  		<< "> Preco: " << this->getPreco() << endl
+	  		<< "> Modelo: " << this->getModelo()<< " (1-ESPORTIVO , 2-NORMAL)"<< endl
+	 		<< "> Data fabricacao: " << this->getData() << endl
+	  		<< "> Numero do Chassi: " << this->getChassi() << endl;
+		return true;
+	} else {
+		return false;
+	}
+}

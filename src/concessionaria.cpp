@@ -20,6 +20,8 @@ concessionaria::concessionaria(){
 	nome = "";
 	cnpj = "";
 }
+concessionaria::~concessionaria(){
+}
 
 concessionaria::concessionaria(string nome_, string primeiro_nome_,string sobrenome_, string cnpj_, const vector<automovel*>lista_A, const vector<moto*>lista_M,const vector<caminhao*>lista_C){
 	nome = nome_;
@@ -39,6 +41,7 @@ concessionaria::concessionaria(string nome_, string cnpj_, const vector<automove
 	listaConc_C = lista_C;
 	++(++numeroConc);
 }
+
 
 int concessionaria::getSizeLista_A(){
 	return listaConc_A.size();	
@@ -79,6 +82,37 @@ bool concessionaria::add_caminhao(string marca, double preco, string chassi,int 
 		listaConc_C.push_back(autom);
 		return true;
 }
+
+bool concessionaria::verificarChassi(){
+		string chassi;
+		cout << endl << "Informe o chassi"<< endl;	
+		cin >> chassi;
+		int cont = 0 ;
+		
+		for (vector<automovel*>::iterator it = listaConc_A.begin(); it != listaConc_A.end(); ++it){
+			if ((**it) == chassi){
+				cont +=1;
+				return true;	
+			}
+		}
+		for (vector<moto*>::iterator it = listaConc_M.begin(); it != listaConc_M.end(); ++it){
+			if ((**it) == chassi){
+				cont +=1;
+				return true;	
+			}
+		}
+		for (vector<caminhao*>::iterator it = listaConc_C.begin(); it != listaConc_C.end(); ++it){
+			if ((**it) == chassi){
+				cont +=1;
+				return true;	
+			}
+		}
+		if (cont == 0 ){
+			cout << endl << "Chassi nao pertece a essa concessionaria."<< endl;	
+			return false;
+		}
+	return false;
+}
 bool concessionaria::add_carro(){
 	string chassi;
 	string marca;
@@ -112,12 +146,12 @@ bool concessionaria::add_carro(){
 		
 		automovel *autom = new automovel(marca, preco, chassi,motor);
 		
-		//for (vector<automovel*>::iterator it = listaConc_A.begin(); it != listaConc_A.end(); ++it){
-		//	if (**it == *autom){
-		//		cout << endl << "Carro ja cadastrado. Operacao CANCELADA!" << endl;
-		//		return false;	
-		//	}
-		//}
+		for (vector<automovel*>::iterator it = listaConc_A.begin(); it != listaConc_A.end(); ++it){
+			if ((**it) == *autom){
+				cout << endl << "Carro ja cadastrado. Operacao CANCELADA!" << endl;
+				return false;	
+			}
+		}
 		
 		listaConc_A.push_back(autom);
 		
@@ -141,12 +175,14 @@ bool concessionaria::add_carro(){
 		
 		moto *autom = new moto(marca, preco, chassi,modelo);
 		
-		//for (vector<moto*>::iterator it = listaConc_M.begin(); it != listaConc_M.end(); ++it){
-		//	if (**it == *autom){
-		//		cout << endl << "Moto ja cadastrada. Operacao CANCELADA!" << endl;
-		//		return false;	
-		//	}
-		//}
+
+		for (vector<moto*>::iterator it = listaConc_M.begin(); it != listaConc_M.end(); ++it){
+			if (**it == *autom){
+				cout << endl << "Carro ja cadastrado. Operacao CANCELADA!" << endl;
+				return false;	
+			}
+		}
+	
 		listaConc_M.push_back(autom);
 	}
 	if (escolha == 3){
@@ -166,12 +202,12 @@ bool concessionaria::add_carro(){
 		
 		caminhao *autom = new caminhao(marca, preco, chassi,carga);
 		
-	//	for (vector<caminhao*>::iterator it = listaConc_C.begin(); it != listaConc_C.end(); ++it){
-	//		if (**it == *autom){
-	//			cout << endl << "Caminhao ja cadastrado. Operacao CANCELADA!" << endl;
-	//			return false;	
-	//		}
-	//	}
+		for (vector<caminhao*>::iterator it = listaConc_C.begin(); it != listaConc_C.end(); ++it){
+			if (**it == *autom){
+				cout << endl << "Carro ja cadastrado. Operacao CANCELADA!" << endl;
+				return false;	
+			}
+		}
 		listaConc_C.push_back(autom);
 	}
 	else if(escolha != 1 && escolha !=2 && escolha != 3){

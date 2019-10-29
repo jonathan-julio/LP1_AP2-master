@@ -24,10 +24,11 @@ int main (int argc, char const *argv[]){
 		cout << endl << "++++++++++++++++++++++++++++++++"<<endl
 		<< endl << "Escolha a opcao desejada"<<endl	
 		<< "Digite 1 - Criar Concessionaria"<< endl
-		<< "Digite 2 - Adicionar Automovel "<<endl
+		<< "Digite 2 - Adicionar veiculo "<<endl
 		<< "Digite 3 - Detalhes Concessionaria "<<endl
 		<< "Digite 4 - Lista de Automoveis"<< endl
 		<< "Digite 5 - Salvar concessionaria"<< endl
+		<< "Digite 6 - Busca chassi"<< endl
 		<< "Digite 0 - Sair"<< endl
 		<< "++++++++++++++++++++++++++++++++"<<endl
 		<< endl<< "Digite sua Escolha: " <<endl;
@@ -43,13 +44,14 @@ int main (int argc, char const *argv[]){
 					 	listaConc.criarconcessionaria();
 					 	break;
 					 }
-					 if (xx == 2){
+					 else if (xx == 2){
 					 	listaConc.criarconcessionariaCSV();
 					 	break;
 					 }
-					 else if(xx != 1 && xx !=2){
-					 	cout << "Entrada invalida, digite novamente."<< endl;
+					 else {
 					 	break;
+					 	x = 9;
+
 					 }					
 			case 2: 
 					listaConc.cadastrarCarro();
@@ -62,6 +64,9 @@ int main (int argc, char const *argv[]){
 					break;
 			case 5:
 					listaConc.salvarConcessionaria();
+					break;
+			case 6:
+					listaConc.buscaChassi();
 					break;
 			case 0:
 					cout<<endl<< "Ate mais!" << endl;

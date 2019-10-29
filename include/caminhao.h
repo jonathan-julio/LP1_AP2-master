@@ -34,8 +34,8 @@ class caminhao : public veiculo{
 		friend ostream& operator << (ostream &o, caminhao &veiculo);
 		friend ofstream& operator << (ofstream &o, caminhao &veiculo);
 
-		bool operator==(const caminhao &cam) const;
-		bool operator==(const string &marca) const;
+		bool operator==( caminhao &cam) ;
+		bool operator==( string &marca) ;
 	
 };
 
